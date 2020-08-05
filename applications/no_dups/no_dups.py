@@ -1,6 +1,16 @@
 def no_dups(s):
     # Your code here
 
+    if s == "":
+        return ""
+    arr = []    
+    for word in s.split():
+        if word not in arr:
+            arr.append(word)
+    
+        
+    return ' '.join(arr)
+
 
 
 if __name__ == "__main__":

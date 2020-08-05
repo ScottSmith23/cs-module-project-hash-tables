@@ -112,7 +112,7 @@ class HashTable:
         if not self.slots[slot]:
             self.slots[slot] = HashTableEntry(key,value)
             self.stored += 1
-        #else update value for existing key or create new key if linked list found
+        #else update value for existing key or create new entry
         else:
             current_node = self.slots[slot]
 
