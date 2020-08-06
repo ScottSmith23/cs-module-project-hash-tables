@@ -1,5 +1,5 @@
 # Your code here
-
+import math,random
 
 def slowfun_too_slow(x, y):
     v = math.pow(x, y)
@@ -8,13 +8,24 @@ def slowfun_too_slow(x, y):
     v %= 982451653
 
     return v
-
+cache = {}
 def slowfun(x, y):
     """
     Rewrite slowfun_too_slow() in here so that the program produces the same
     output, but completes quickly instead of taking ages to run.
     """
     # Your code here
+
+    key = (x,y)
+
+    if key not in cache:
+        cache[key] = math.pow(x, y)
+        cache[key] = math.factorial(cache[key])
+        cache[key] //= (x + y)
+        cache[key] %= 982451653
+        
+
+    return cache[key]
 
 
 
@@ -24,3 +35,5 @@ for i in range(50000):
     x = random.randrange(2, 14)
     y = random.randrange(3, 6)
     print(f'{i}: {x},{y}: {slowfun(x, y)}')
+
+
