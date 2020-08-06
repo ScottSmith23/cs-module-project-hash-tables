@@ -3,13 +3,14 @@ def no_dups(s):
 
     if s == "":
         return ""
-    arr = []    
+    cache = {}    
     for word in s.split():
-        if word not in arr:
-            arr.append(word)
+        if word not in cache:
+           cache[word] = word
     
+    words=list(cache.values())
         
-    return ' '.join(arr)
+    return " ".join(words)
 
 
 
