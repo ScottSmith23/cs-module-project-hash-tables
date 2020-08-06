@@ -35,13 +35,16 @@ def ciphercrack(s):
         counter +=1
 
     #decodes and prints the input
+    string = ""
     for word in s:
-        if word == " ":
-            print(word,end="")
-        elif word in decoded:
-            print(decoded[word],end="")
+        if word in decoded:
+            string += decoded[word]
         else:
-            print(word,end="")
+            string += word
+    return string
 
 
-ciphercrack(s)
+decrypt = ciphercrack(s)
+
+with open("applications/crack_caesar/decryptedtext.txt", "w") as file:
+    file.write(decrypt)
